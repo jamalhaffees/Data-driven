@@ -6,13 +6,13 @@ from datetime import datetime
 import pytest
 from time import sleep
 from get_excel_data import login_form_parameters
-from get_db_data import login_form_parameters
+# from get_db_data import login_form_parameters
 import logging
 # ######common functions########
 
 logging.basicConfig(filename= 'C:\Data-driven\logs\info.log',
                     encoding='utf-8',
-                    level=logging.info,
+                    level=logging.INFO,
                     force=True,
                     format='%(asctime)s %(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S %P')
@@ -74,7 +74,6 @@ def test_login_valid_credentials(setup):
     
 
 def test_view_product_details(setup):
-   
     product_names = driver.find_elements(By.CLASS_NAME, 'inventory_item_name')
     product_names[0].click()
     assert text_is_displayed('back to products')
